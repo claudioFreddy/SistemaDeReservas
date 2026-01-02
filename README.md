@@ -27,4 +27,12 @@ Admin:
 
 ## Capturas
 
-(Aquí pegas tus imágenes)
+  ## Capturas
+
+### Vista Administrador
+![Administrador](admin.png)
+
+### Vista Usuario
+![Usuario](user.png)
+
+

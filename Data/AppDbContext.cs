@@ -1,9 +1,6 @@
 ﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using SistemaDeReservas.Models;
-//using System.Collections.Generic;
-//using System.Reflection.Emit;
-//using SistemaDeReservas.Models; // Asegúrate de usar tu espacio de nombres correcto
 
 namespace SistemaDeReservas.Data
 {

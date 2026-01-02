@@ -20,13 +20,10 @@
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.Estado)
-            </th>
-           
+            </th>          
+            
             <th>
-                Nombre
-            </th>
-            <th>
-                @Html.DisplayName("NombreCompleto")
+                Reservado por
             </th>
 
             <th></th>
@@ -45,13 +42,20 @@
                 @Html.DisplayFor(modelItem => item.Estado)
             </td>
             <td>
-                @item.Usuario?.NombreCompleto
-             @*   @Html.DisplayFor((modelItem => item.Usuario.UserName))  *@
+                @item.Usuario?.Email
+            
             </td>
             <td>
-                <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+                    <a asp-action="Details" asp-route-id="@item.Id">Details</a>
+
+                    @if (User.IsInRole("Admin"))
+                    {
+                        <text> | </text>
+                        <a asp-action="Edit" asp-route-id="@item.Id">Edit</a>
+                        <text> | </text>
+                        <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+                    }
+
             </td>
         </tr>
 }

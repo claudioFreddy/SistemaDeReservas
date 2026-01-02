@@ -1,34 +1,30 @@
-# Sistema de Reservas – ASP.NET Core MVC
+# Sistema de Reservas - ASP.NET Core MVC
 
-Aplicación web desarrollada en **ASP.NET Core MVC** que permite a los usuarios
-registrarse, iniciar sesión y gestionar sus propias reservas.
+Sistema de reservas desarrollado en ASP.NET Core MVC utilizando Identity y Roles.
 
-## 🚀 Tecnologías utilizadas
+## Funcionalidades
+
+- Registro y login de usuarios
+- Roles: Admin y Usuario
+- Cada usuario ve solo sus propias reservas
+- El administrador ve todas las reservas
+- Asociación automática de reservas al usuario autenticado
+- Control de acceso por roles
+- CRUD completo de reservas
+
+## Tecnologías
 
 - ASP.NET Core MVC
 - Entity Framework Core
+- SQL Server Express
 - ASP.NET Identity
-- SQL Server
-- C#
 
-## ✅ Funcionalidades
+## Usuario de prueba
 
-- Registro e inicio de sesión de usuarios
-- Creación, edición y eliminación de reservas (CRUD)
-- Asociación de reservas a usuarios
-- Persistencia de datos con SQL Server
-- Arquitectura MVC clara y ordenada
+Admin:
+- Email: admin@admin.com
+- Password: Admin123*
 
-## 🧱 Estructura del proyecto
+## Capturas
 
-- `Controllers/` – Controladores MVC
-- `Models/` – Modelos de dominio
-- `Views/` – Vistas Razor
-- `Data/` – DbContext y acceso a datos
-- `wwwroot/` – Archivos estáticos
-
-## ▶️ Cómo ejecutar el proyecto
-
-1. Clonar el repositorio:
-```bash
-git clone https://github.com/claudioFreddy/SistemaDeReservas.git
+(Aquí pegas tus imágenes)

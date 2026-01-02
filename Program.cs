@@ -8,16 +8,20 @@ using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
 
+builder.Services.AddDefaultIdentity<ApplicationUser>(options =>
+{
+    options.SignIn.RequireConfirmedAccount = false;
+})
+.AddRoles<IdentityRole>()
+.AddEntityFrameworkStores<AppDbContext>();
+
+
+
 builder.Services.AddDbContext<AppDbContext>(options =>
     options.UseSqlServer(
         builder.Configuration.GetConnectionString("DefaultConnection"),
         sqlOptions => sqlOptions.EnableRetryOnFailure()
     ));
-
-builder.Services.AddDefaultIdentity<ApplicationUser>(options => options.SignIn.RequireConfirmedAccount = false)
-    .AddRoles<IdentityRole>() //  IMPORTANTE
-    .AddEntityFrameworkStores<AppDbContext>();
-
 
 //.AddDefaultUI(); //  esto activa la UI incluida en el paquete
 
@@ -48,20 +52,13 @@ app.MapControllerRoute(
     pattern: "{controller=Reservas}/{action=Index}/{id?}")
     .WithStaticAssets();
 
-
-app.Run();
-
-
-
-/*
 using (var scope = app.Services.CreateScope())
 {
-    var services = scope.ServiceProvider;
-    var roleManager = services.GetRequiredService<RoleManager<IdentityRole>>();
-    var userManager = services.GetRequiredService<UserManager<ApplicationUser>>();
+    var roleManager = scope.ServiceProvider.GetRequiredService<RoleManager<IdentityRole>>();
+    var userManager = scope.ServiceProvider.GetRequiredService<UserManager<ApplicationUser>>();
 
-    // Crea roles si no existen
     string[] roles = { "Admin", "Usuario" };
+
     foreach (var role in roles)
     {
         if (!await roleManager.RoleExistsAsync(role))
@@ -70,12 +67,30 @@ using (var scope = app.Services.CreateScope())
         }
     }
 
-    // Asignar primer usuario como administrador (opcional)
     var adminEmail = "admin@admin.com";
+    var adminPassword = "Admin2025*";
+
     var adminUser = await userManager.FindByEmailAsync(adminEmail);
-    if (adminUser != null && !await userManager.IsInRoleAsync(adminUser, "Admin"))
+
+    if (adminUser == null)
     {
-        await userManager.AddToRoleAsync(adminUser, "Admin");
+        var user = new ApplicationUser
+        {
+            UserName = adminEmail,
+            Email = adminEmail,
+            EmailConfirmed = true,
+            NombreCompleto = "Administrador Demo"
+        };
+
+        await userManager.CreateAsync(user, adminPassword);
+        await userManager.AddToRoleAsync(user, "Admin");
     }
-}  */
+}
+
+
+app.Run();
+
+
+
+
 

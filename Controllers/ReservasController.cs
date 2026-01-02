@@ -35,6 +35,7 @@ namespace SistemaDeReservas.Controllers
 
             var reservas = await query.ToListAsync();
             return View(reservas);
+        } 
 
             /*var reserva = _context.Reservas.Include(r => r.Usuario);
 
@@ -45,7 +46,7 @@ namespace SistemaDeReservas.Controllers
                 .ToListAsync();
 
             return View(reservas);  */
-        }
+        
 
         // GET: Reservas/Create
         public async Task<IActionResult> Create()
@@ -89,6 +90,7 @@ namespace SistemaDeReservas.Controllers
         }
 
         // GET: Reservas/Edit/5
+
         public async Task<IActionResult> Edit(int? id)
         {
             if (id == null) return NotFound();
@@ -105,6 +107,7 @@ namespace SistemaDeReservas.Controllers
         // POST: Reservas/Edit/5
         [HttpPost]
         [ValidateAntiForgeryToken]
+        
         public async Task<IActionResult> Edit(int id, [Bind("Id,FechaReserva,Motivo,Estado")] Reserva reserva)
         {
             var usuario = await _userManager.GetUserAsync(User);

@@ -9,23 +9,20 @@ Sistema de reservas desarrollado en ASP.NET Core MVC utilizando Identity y Roles
 - Cada usuario ve solo sus propias reservas
 - El administrador ve todas las reservas
 - Asociación automática de reservas al usuario autenticado
-- Control de acceso por roles
-- CRUD completo de reservas
 
 ## Tecnologías
 
-- ASP.NET Core MVC
-- Entity Framework Core
-- SQL Server Express
-- ASP.NET Identity
-
-## Usuario de prueba
-
-Admin:
-- Email: admin@admin.com
-- Password: Admin123*
+- ASP.NET Core MVC  
+- Entity Framework Core  
+- SQL Server Express  
+- ASP.NET Identity  
 
 ## Capturas
 
-(Aquí pegas tus imágenes)
+### Vista Administrador
+![Administrador](admin.png)
+
+### Vista Usuario
+![Usuario](user.png)
+
 

@@ -28,3 +28,4 @@ Admin:
 ## Capturas
 
 (Aquí pegas tus imágenes)
+

@@ -1,8 +1,38 @@
 ﻿@{
-    ViewData["Title"] = "Home Page";
+    ViewData["Title"] = "Sistema de Reservas";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+<div style="max-width:700px;margin:auto;background:white;padding:30px;border-radius:8px;
+            box-shadow:0 0 10px rgba(0,0,0,0.1);margin-top:40px;font-family:Arial">
+
+    <h1>Sistema de Reservas</h1>
+
+    <p>
+        Proyecto desarrollado en <strong>ASP.NET Core MVC</strong> utilizando
+        <strong>Identity y Roles</strong>.
+    </p>
+
+    <h3>Funcionalidades</h3>
+    <ul>
+        <li>Registro y login de usuarios</li>
+        <li>Roles: Admin y Usuario</li>
+        <li>Los usuarios ven solo sus reservas</li>
+        <li>El administrador ve todas las reservas</li>
+        <li>Asociación automática de reservas al usuario autenticado</li>
+    </ul>
+
+    <h3>Tecnologías</h3>
+    <ul>
+        <li>ASP.NET Core MVC</li>
+        <li>Entity Framework Core</li>
+        <li>SQL Server Express</li>
+        <li>ASP.NET Identity</li>
+    </ul>
+
+    <a href="https://github.com/claudioFreddy/SistemaDeReservas" target="_blank"
+       style="display:inline-block;margin-top:15px;padding:10px 18px;background:#007bff;
+              color:white;text-decoration:none;border-radius:4px;">
+        Ver código en GitHub
+    </a>
 </div>
+
